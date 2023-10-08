@@ -1,4 +1,12 @@
+"use client";
+import { useRouter } from "next/navigation";
 export default function SignIn() {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push("/dashboard");
+  };
   return (
     <>
       <div className="flex min-h-screen flex-1">
@@ -9,19 +17,19 @@ export default function SignIn() {
                 Join plug today
               </h2>
               <p className="mt-2 text-sm leading-6 text-gray-500">
-                Already have an account?
+                Don&apos;t have an account?
                 <a
-                  href="#"
+                  href="/sign-up"
                   className="font-semibold text-indigo-600 hover:text-indigo-500"
                 >
-                  &nbsp; Log in
+                  &nbsp; Sign up
                 </a>
               </p>
             </div>
 
             <div className="mt-10">
               <div>
-                <form action="#" method="POST" className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-3">
                     <div>
                       <label
