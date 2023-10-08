@@ -62,19 +62,11 @@ const statusStyles: Record<string, string> = {
   failed: "bg-gray-100 text-gray-800",
 };
 
-export default function Example() {
+export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
