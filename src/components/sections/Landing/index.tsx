@@ -32,8 +32,9 @@ export default function Example() {
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Plug simplifies the world of online commerce, empowering you to
               effortlessly create shops, showcase products, and reach your
-              audience. And that's not all – we handle deliveries and payments,
-              making your journey from listing to sale smoother than ever.
+              audience. And that&apos;s not all – we handle deliveries and
+              payments, making your journey from listing to sale smoother than
+              ever.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
