@@ -26,7 +26,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
         <Sidebar />
 
         <div className="lg:pl-64 ml-2 mt-3">
-          {store ? (
+          {store || pathname.includes("store") ? (
             children
           ) : (
             <div className="capitalize underline text-red-500">
