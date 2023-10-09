@@ -25,7 +25,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <Sidebar />
 
-        <div className="lg:pl-64 ml-2">
+        <div className="lg:pl-64 ml-2 mt-3">
           {store ? (
             children
           ) : (
