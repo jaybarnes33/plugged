@@ -57,7 +57,7 @@ const Sidebar = () => {
       <div className="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none">
         <button
           type="button"
-          className="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
+          className="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 lg:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
@@ -90,7 +90,7 @@ const Sidebar = () => {
           <div className="ml-4 flex items-center md:ml-6">
             <button
               type="button"
-              className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
@@ -100,7 +100,7 @@ const Sidebar = () => {
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
-                <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50">
+                <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50">
                   <span className="absolute -inset-1.5 lg:hidden" />
                   <img
                     className="h-8 w-8 rounded-full"
@@ -200,7 +200,7 @@ const Sidebar = () => {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-cyan-700 pb-4 pt-5">
+              <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-blue-700 pb-4 pt-5">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
@@ -228,12 +228,12 @@ const Sidebar = () => {
                 <div className="flex flex-shrink-0 items-center px-4">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=300"
                     alt="Easywire logo"
                   />
                 </div>
                 <nav
-                  className="mt-5 h-full flex-shrink-0 divide-y divide-cyan-800 overflow-y-auto"
+                  className="mt-5 h-full flex-shrink-0 divide-y divide-blue-800 overflow-y-auto"
                   aria-label="Sidebar"
                 >
                   <div className="space-y-1 px-2">
@@ -243,14 +243,14 @@ const Sidebar = () => {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-cyan-800 text-white"
-                            : "text-cyan-100 hover:bg-cyan-600 hover:text-white",
+                            ? "bg-blue-800 text-white"
+                            : "text-blue-100 hover:bg-blue-600 hover:text-white",
                           "group flex items-center rounded-md px-2 py-2 text-base font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
                         <item.icon
-                          className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                          className="mr-4 h-6 w-6 flex-shrink-0 text-blue-200"
                           aria-hidden="true"
                         />
                         {item.name}
@@ -263,10 +263,10 @@ const Sidebar = () => {
                         <a
                           key={item.name}
                           href={item.href}
-                          className="group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white"
+                          className="group flex items-center rounded-md px-2 py-2 text-base font-medium text-blue-100 hover:bg-blue-600 hover:text-white"
                         >
                           <item.icon
-                            className="mr-4 h-6 w-6 text-cyan-200"
+                            className="mr-4 h-6 w-6 text-blue-200"
                             aria-hidden="true"
                           />
                           {item.name}
@@ -285,16 +285,16 @@ const Sidebar = () => {
       </Transition.Root>
 
       <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
-        <div className="flex flex-grow flex-col overflow-y-auto bg-cyan-700 pb-4 pt-5">
+        <div className="flex flex-grow flex-col overflow-y-auto bg-blue-700 pb-4 pt-5">
           <div className="flex flex-shrink-0 items-center px-4">
             <img
               className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
+              src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=300"
               alt="Easywire logo"
             />
           </div>
           <nav
-            className="mt-5 flex flex-1 flex-col divide-y divide-cyan-800 overflow-y-auto"
+            className="mt-5 flex flex-1 flex-col divide-y divide-blue-800 overflow-y-auto"
             aria-label="Sidebar"
           >
             <div className="space-y-1 px-2">
@@ -304,14 +304,14 @@ const Sidebar = () => {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-cyan-800 text-white"
-                      : "text-cyan-100 hover:bg-cyan-600 hover:text-white",
+                      ? "bg-blue-800 text-white"
+                      : "text-blue-100 hover:bg-blue-600 hover:text-white",
                     "group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
                   <item.icon
-                    className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                    className="mr-4 h-6 w-6 flex-shrink-0 text-blue-200"
                     aria-hidden="true"
                   />
                   {item.name}
@@ -324,10 +324,10 @@ const Sidebar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6 text-cyan-100 hover:bg-cyan-600 hover:text-white"
+                    className="group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6 text-blue-100 hover:bg-blue-600 hover:text-white"
                   >
                     <item.icon
-                      className="mr-4 h-6 w-6 text-cyan-200"
+                      className="mr-4 h-6 w-6 text-blue-200"
                       aria-hidden="true"
                     />
                     {item.name}

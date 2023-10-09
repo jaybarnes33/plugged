@@ -1,15 +1,16 @@
 "use client";
 
 import Sidebar from "@/components/sections/Dashboard/Sidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 export default function Dashboard({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [store, setStore] = useState(
-    !pathname.includes("store") ? false : true
-  );
+  const [store, setStore] = useState(false);
 
+  useEffect(() => {
+    pathname.includes("store") && setStore(true);
+  }, []);
   return (
     <>
       <div className="min-h-full">
