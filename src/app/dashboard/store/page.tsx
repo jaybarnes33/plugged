@@ -1,8 +1,38 @@
+"use client";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-
+import { useRouter } from "next/navigation";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 export default function Example() {
+  const [data, setData] = useState({
+    name: "",
+    location: "",
+    description: "",
+    phone: "",
+  });
+
+  const router = useRouter();
+  useEffect(() => {
+    const store = JSON.parse(localStorage.getItem("store") as string);
+    if (store) {
+      setData(store);
+    }
+  }, []);
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    localStorage.setItem("store", JSON.stringify(data));
+    router.push("/dashboard");
+  };
   return (
-    <form className="px-9">
+    <form className="px-9 mt-5" onSubmit={handleSubmit}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -24,7 +54,7 @@ export default function Example() {
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
               <label
-                htmlFor="storeName"
+                htmlFor="name"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Store Name
@@ -32,9 +62,11 @@ export default function Example() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="storeName"
-                  id="storeName"
-                  autoComplete="storeName"
+                  name="name"
+                  id="name"
+                  value={data.name}
+                  onChange={handleChange}
+                  autoComplete="name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -51,7 +83,9 @@ export default function Example() {
                 <input
                   type="text"
                   name="location"
+                  value={data.location}
                   id="location"
+                  onChange={handleChange}
                   autoComplete="family-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -68,7 +102,9 @@ export default function Example() {
               <div className="mt-2">
                 <textarea
                   id="description"
+                  value={data.description}
                   name="description"
+                  onChange={handleChange}
                   autoComplete="description"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -85,7 +121,9 @@ export default function Example() {
                 <input
                   type="phone"
                   name="phone"
+                  value={data.phone}
                   id="phone"
+                  onChange={handleChange}
                   autoComplete="phone"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

@@ -18,34 +18,32 @@ import {
 } from "@heroicons/react/24/outline";
 import { classNames } from "@/utils/classnames";
 import { Dialog, Menu, Transition } from "@headlessui/react";
+import { usePathname } from "next/navigation";
 const Sidebar = () => {
+  const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigation = [
-    { name: "Home", href: "/dashboard", icon: HomeIcon, current: true },
+    { name: "Home", href: "/dashboard", icon: HomeIcon },
     {
       name: "Store",
       href: "/dashboard/store",
       icon: ClockIcon,
-      current: false,
     },
     {
       name: "Inventory",
       href: "/dashboard/inventory",
       icon: ScaleIcon,
-      current: false,
     },
     {
       name: "Orders",
       href: "/dashboard/orders",
       icon: CreditCardIcon,
-      current: false,
     },
 
     {
       name: "Earnings",
       href: "/dashboard/earnings",
       icon: DocumentChartBarIcon,
-      current: false,
     },
   ];
   const secondaryNavigation = [
@@ -242,12 +240,14 @@ const Sidebar = () => {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current
+                          pathname === item.href
                             ? "bg-blue-800 text-white"
                             : "text-blue-100 hover:bg-blue-600 hover:text-white",
                           "group flex items-center rounded-md px-2 py-2 text-base font-medium"
                         )}
-                        aria-current={item.current ? "page" : undefined}
+                        aria-current={
+                          pathname === item.href ? "page" : undefined
+                        }
                       >
                         <item.icon
                           className="mr-4 h-6 w-6 flex-shrink-0 text-blue-200"
@@ -286,13 +286,7 @@ const Sidebar = () => {
 
       <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
         <div className="flex flex-grow flex-col overflow-y-auto bg-blue-700 pb-4 pt-5">
-          <div className="flex flex-shrink-0 items-center px-4">
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=300"
-              alt="Easywire logo"
-            />
-          </div>
+          <div className="flex flex-shrink-0 items-center px-4"></div>
           <nav
             className="mt-5 flex flex-1 flex-col divide-y divide-blue-800 overflow-y-auto"
             aria-label="Sidebar"
@@ -303,12 +297,12 @@ const Sidebar = () => {
                   key={item.name}
                   href={item.href}
                   className={classNames(
-                    item.current
+                    pathname === item.href
                       ? "bg-blue-800 text-white"
                       : "text-blue-100 hover:bg-blue-600 hover:text-white",
                     "group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6"
                   )}
-                  aria-current={item.current ? "page" : undefined}
+                  aria-current={pathname === item.href ? "page" : undefined}
                 >
                   <item.icon
                     className="mr-4 h-6 w-6 flex-shrink-0 text-blue-200"

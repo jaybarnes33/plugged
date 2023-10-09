@@ -6,10 +6,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 export default function Dashboard({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [store, setStore] = useState(false);
+  const [store, setStore] = useState({
+    name: "",
+    phone: "",
+    location: "",
+    description: "",
+  });
 
   useEffect(() => {
-    pathname.includes("store") && setStore(true);
+    const storeFromStorage = JSON.parse(
+      localStorage.getItem("store") as string
+    );
+    setStore(storeFromStorage);
   }, []);
   return (
     <>
